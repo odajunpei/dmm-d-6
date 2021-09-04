@@ -1,0 +1,10 @@
+ <%= form_with model:[book_find, @book_comment], remote: true,id:'new_comment' do |f| %>
+    <table class=="table table-hover table-inverse">
+      <tbody>
+        <tr>
+          <%= f.text_area :comment, rows: '5',placeholder: "コメントをここに" %>
+          <%= f.submit "送信" %>
+        </tr>
+      </tbody>
+    </table>
+ <% end %>
