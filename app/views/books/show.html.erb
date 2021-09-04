@@ -40,11 +40,15 @@
           </table>
 　　　　　<h4><strong>コメント</strong></h4>
           <table class="table table-hover table-inverse">
-          <div id="book-comment">
-            <%= render 'book_comments/comment', book_find: @book_find %>
+          <div id="comments_area_<% @book_find.id %>">
+            <%= render partial: 'book_comments/comment', locals: { book_comments: @book_comments,user: @user } %>
           </div>
-            <%= render 'book_comments/form', book_find: @book_find %>
-              </table>
+          <% if user_signed_in? %>
+          <div id="comments_create_<% @book_find.id %>">
+            <%= render partial: 'book_comments/form', locals: { book_comment: @book_comment,book: @book_find } %>
+          </div>
+          <% end %>
+           </table>
         </div>
     </div>
   </div>

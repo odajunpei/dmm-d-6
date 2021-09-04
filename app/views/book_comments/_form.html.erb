@@ -1,9 +1,9 @@
- <%= form_with model:[book_find, @book_comment], remote: true,id:'new_comment' do |f| %>
+ <%= form_with model: [book, book_comment], url: book_book_comments_path(book.id) do |f| %>
     <table class=="table table-hover table-inverse">
       <tbody>
         <tr>
-          <%= f.text_area :comment, rows: '5',placeholder: "コメントをここに" %>
-          <%= f.submit "送信" %>
+          <%= f.text_area :comment, rows: '5',placeholder: "コメントをここに" ,class:"input-mysize" %>
+          <%= f.submit "送信", class:"btn btn-outline-dark comment-submit float-raght" %>
         </tr>
       </tbody>
     </table>
