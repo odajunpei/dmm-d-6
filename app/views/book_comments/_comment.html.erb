@@ -1,9 +1,10 @@
+ <table class="table table-hover table-inverse">
 <tbody>
   <% book_comments.each do |comments| %>
   <% unless comments.id.nil? %>
     <tr>
       <td>
-        <%= link_to user_path(user.id) do %>
+        <%= link_to user_path(comments.user.id) do %>
         　<%= attachment_image_tag comments.user, :profile_image, size:"40x40", fallback: "no_image.jpg" %>
         <% end %>
         <br><%= link_to "#{comments.user.name}", user_path(comments.user.id) %></br>
@@ -22,3 +23,4 @@
   <% end %>
   <% end %>
 </tbody>
+ </table>
